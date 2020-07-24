@@ -1,0 +1,7 @@
+for file in ls *.log.1;
+do
+	append_file_name= echo $file | awk -F. '{print $1}';
+	date_append= date "+%d-%m-%Y";
+	append_file_name="${append_file_name}.${date_append}.log";
+	mv $file $append_file_name;
+done
